@@ -62,8 +62,11 @@
             //Copy Button
             copyClipboard.addEventListener("click", function() {
                 var text = document.createElement("textarea")
-                text.textContent = returnPassword.textContent
+                text.value = returnPassword.textContent
+                document.body.appendChild(text)
+                text.focus();
                 text.select();
                 document.execCommand("copy");
                 alert("Copied text")
+                document.body.removeChild(text)
             })
